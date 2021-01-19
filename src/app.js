@@ -14,7 +14,7 @@ const App = (props) => {
   return (
     <>
       <Navbar bg="primary" variant="dark">
-      <Navbar.Brand href="#home">Home</Navbar.Brand>
+      <Navbar.Brand data-testid="homelink" href="/">Home</Navbar.Brand>
       <Nav className="mr-auto">
         {/* <Nav.Link href="#home">Home</Nav.Link>
         <Nav.Link href="#features">Features</Nav.Link>
