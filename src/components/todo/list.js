@@ -1,21 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ListGroup from 'react-bootstrap/ListGroup'
 
 
 
 const TodoList = (props) => {
+  const [complete, setComplete] = useState('danger')
+  const [finished, setFinished] = useState([]);
+
+  const markComplete = (id) => {
+    props.handleComplete(id);
+    setFinished([...finished, id])
+  }
+
   return (
-          <ul>
-            {props.list.map(item => (
-              <li
-                className={`complete-${item.complete.toString()}`}
-                key={item._id}
-              >
-                <span onClick={() => props.handleComplete(item._id)}>
-                  {item.text}
-                </span>
-              </li>
-            ))}
-          </ul>
+    <ListGroup as="ul">
+      {props.list.map(item => (
+        <ListGroup.Item 
+        variant={finished.includes(item._id) ? 'success': 'danger'} 
+        onClick={() => markComplete(item._id)} 
+        as="li" className={`complete-${item.complete.toString()}`} 
+        eventKey={item._id}
+        > 
+              {item.text}
+              <br></br>
+              Assigned To: {item.assignee}
+              
+      </ListGroup.Item>
+      ))}
+    </ListGroup>
+          // <ul>
+          //   {props.list.map(item => (
+          //     <li
+          //       className={`complete-${item.complete.toString()}`}
+          //       key={item._id}
+          //     >
+          //       <span onClick={() => props.handleComplete(item._id)}>
+          //         {item.text}
+          //       </span>
+          //     </li>
+          //   ))}
+          // </ul>
         );
 
 }

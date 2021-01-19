@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
+import Navbar from 'react-bootstrap/Navbar'
 
 import './todo.scss';
 
@@ -37,9 +38,9 @@ const ToDo = (props) => {
   return (
           <>
             <header>
-              <h2>
-              There are {list.filter(item => !item.complete).length} Items To Complete
-              </h2>
+              <Navbar bg="light">
+                <Navbar.Brand>There are {list.filter(item => !item.complete).length} Items To Complete</Navbar.Brand>
+              </Navbar>
             </header>
     
             <section className="todo">
