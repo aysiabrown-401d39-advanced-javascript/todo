@@ -16,10 +16,11 @@ const TodoList = (props) => {
     <ListGroup as="ul">
       {props.list.map(item => (
         <ListGroup.Item 
+        data-testid = {item._id}
         variant={finished.includes(item._id) ? 'success': 'danger'} 
         onClick={() => markComplete(item._id)} 
         as="li" className={`complete-${item.complete.toString()}`} 
-        eventKey={item._id}
+        key={item._id}
         > 
               {item.text}
               <br></br>
