@@ -6,6 +6,7 @@ Refactor React Class Components into Functional Components while maintaining cor
 
 ### Resources
 - [GH-Pages Frontend](https://aysiabrown-401d39-advanced-javascript.github.io/todo/)
+- [To Do API](https://aysiab-basic-api-server.herokuapp.com/todo)
 
 ### Setup
 - Run `npm i` to install all the dependencies from within your cloned repo 
