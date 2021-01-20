@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup'
+import Card from 'react-bootstrap/Card'
+import Badge from 'react-bootstrap/Badge'
+import Modal from 'react-bootstrap/Modal'
 
 
 
@@ -7,22 +10,22 @@ const TodoList = (props) => {
 
 
   return (
-    <ListGroup>
+    <>
       {props.list.map(item => (
-        <ListGroup.Item 
-        data-testid = {item._id}
-        variant={item.complete ? 'success': 'danger'} 
-        onClick={() => props.handleComplete(item._id)} 
-        className={`complete-${item.complete}`} 
-        key={item._id}
-        > 
-              {item.text}
-              <br></br>
-              Assigned To: {item.assignee}
-              
-      </ListGroup.Item>
+        <Modal.Dialog>
+        <Modal.Header closeButton onHide={() => props.handleDelete(item._id)}>
+          <Modal.Title onClick = {() => props.handleComplete(item._id)}>
+            <Badge pill variant={item.complete ? "success": "danger"}>{item.complete ? "Complete" : "Pending"}</Badge>
+            {item.assignee}
+            </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>{item.text}</p>
+          <p>Difficulty: {item.difficulty}</p>
+        </Modal.Body>
+      </Modal.Dialog>
       ))}
-    </ListGroup>
+    </>
         );
 
 }

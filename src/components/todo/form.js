@@ -12,7 +12,7 @@ const TodoForm = (props) => {
 
   const handleSubmit = e  => {
     e.preventDefault();
-    props.handleSubmit(item);
+    props.handleSubmit(item)
     const obj = {};
     setItem({obj});
   }
