@@ -5,6 +5,10 @@ import Navbar from 'react-bootstrap/Navbar'
 
 import './todo.scss';
 
+const axios = require('axios')
+const url = 'https://aysiab-basic-api-server.herokuapp.com/todo';
+
+
 const ToDo = (props) => {
   const [list, setList] = useState([]);
 
@@ -23,14 +27,14 @@ const ToDo = (props) => {
     }
   }
 
-  useEffect(() => {
-    let newList = [
-      { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A'},
-      { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A'},
-      { _id: 3, complete: false, text: 'Walk the Dog', difficulty: 4, assignee: 'Person B'},
-      { _id: 4, complete: true, text: 'Do Homework', difficulty: 3, assignee: 'Person C'},
-      { _id: 5, complete: false, text: 'Take a Nap', difficulty: 1, assignee: 'Person B'},
-    ];
+  useEffect(async () => {
+    try {
+      var response = await axios.get(url);
+      console.log(response); 
+    } catch (e) {
+      console.error(e);
+    }
+    let newList = response.data;
 
     setList(newList);
   },[]);

@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-import ToDo from './components/todo/todo.js';
+import ToDo from './components/todo/todo-connected.js';
 /* The following line can be included in your src/index.js or App.js file */
 
 import './app.scss';
@@ -31,13 +31,4 @@ const App = (props) => {
 }
 
 export default App;
-
-// export default class App extends React.Component {
-//   render() {
-//     return (
-//       <>
-//         <ToDo />
-//       </>
-//     );
-//   }
-// }
+ 
