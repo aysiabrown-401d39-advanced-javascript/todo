@@ -1,17 +1,16 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
 import Navbar from 'react-bootstrap/Navbar'
 
 import './todo.scss';
-import AjaxCalls from '../../hooks/ajax.js';
+import useAjaxCalls from '../../hooks/ajax.js';
 
 const todoAPI = 'https://aysiab-basic-api-server.herokuapp.com/todo';
 
 
 const ToDo = () => {
-  const [todoAPI, list, setList, _addItem, _deleteItem, _getTodoItems,_toggleComplete] = AjaxCalls();
+  const [todoAPI, list, setList, _addItem, _deleteItem, _getTodoItems,_toggleComplete] = useAjaxCalls();
 
   return (
     <>
@@ -25,7 +24,8 @@ const ToDo = () => {
 
         <div>
           <TodoForm 
-          handleSubmit={_addItem}/>
+          handleSubmit={_addItem}
+          />
         </div>
 
         <div>

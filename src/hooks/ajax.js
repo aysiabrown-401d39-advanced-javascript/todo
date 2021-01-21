@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 
-const AjaxCalls = () => {
+const useAjaxCalls = () => {
     const [list, setList] = useState([]);
     const todoAPI = 'https://aysiab-basic-api-server.herokuapp.com/todo';
 
@@ -67,4 +67,4 @@ const AjaxCalls = () => {
 
 }
 
-export default AjaxCalls;
+export default useAjaxCalls;
