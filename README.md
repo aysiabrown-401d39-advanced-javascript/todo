@@ -16,3 +16,4 @@ Refactor React Class Components into Functional Components while maintaining cor
 ![UML](./assets/todo.png)
 
 ### Tests
+- Tests need to be built
